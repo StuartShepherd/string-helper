@@ -106,7 +106,7 @@
         }
 
         /// <summary>
-        /// Returns the string with the first character to converted to upper case.
+        /// Returns the string with the first character converted to upper case.
         /// </summary>
         /// <param name="text">Value to convert</param>
         public static string FirstLetterToUpper(string value)
