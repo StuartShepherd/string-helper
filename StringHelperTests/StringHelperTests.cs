@@ -112,5 +112,18 @@ namespace StringHelper.Tests
             var actual = StringHelper.WordCount(x);
             Assert.AreEqual(expected, actual);
         }
+
+        [DataTestMethod]
+        [DataRow(null, null)]
+        [DataRow(" ", " ")]
+        [DataRow("?? ??", "?? ??")]
+        [DataRow("123test", "123test")]
+        [DataRow("lorem", "Lorem")]
+        [DataRow("lorem ipsum", "Lorem ipsum")]
+        public void FirstLetterToUpperTest(string x, string expected)
+        {
+            var actual = StringHelper.FirstLetterToUpper(x);
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

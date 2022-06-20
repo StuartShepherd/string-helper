@@ -104,5 +104,23 @@
                 new char[] { '.', '?', '!', ' ', ';', ':', ',' },
                 StringSplitOptions.RemoveEmptyEntries).Length;
         }
+
+        /// <summary>
+        /// Returns the string with the first character to converted to upper case.
+        /// </summary>
+        /// <param name="text">Value to convert</param>
+        public static string FirstLetterToUpper(string value)
+        {
+            if (String.IsNullOrEmpty(value))
+                return value;
+
+            if (IsNegativeNumber(value.Length))
+                return value;
+
+            var firstCharacter = char.ToUpper(value[0]);
+            return string.Concat(
+                firstCharacter.ToString(),
+                value.Substring(1));
+        }
     }
 }
