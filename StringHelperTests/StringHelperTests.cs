@@ -6,6 +6,19 @@ namespace StringHelper.Tests
     public class StringHelperTests
     {
         [DataTestMethod]
+        [DataRow(null, null)]
+        [DataRow(" ", " ")]
+        [DataRow("?? ??", "?? ??")]
+        [DataRow("123test", "123Test")]
+        [DataRow("lorem", "Lorem")]
+        [DataRow("lorem ipsum", "Lorem Ipsum")]
+        public void CapitaliseEachWordTest(string x, string expected)
+        {
+            var actual = StringHelper.CapitaliseEachWord(x);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [DataTestMethod]
         [DataRow("", 10, "")]
         [DataRow("Lorem ipsum dolor sit amet", 0, "")]
         [DataRow("Lorem ipsum dolor sit amet", 5, "Lorem")]
@@ -110,19 +123,6 @@ namespace StringHelper.Tests
         public void GetTotalNumberOfWordsTest(string x, int expected)
         {
             var actual = StringHelper.GetTotalNumberOfWords(x);
-            Assert.AreEqual(expected, actual);
-        }
-
-        [DataTestMethod]
-        [DataRow(null, null)]
-        [DataRow(" ", " ")]
-        [DataRow("?? ??", "?? ??")]
-        [DataRow("123test", "123test")]
-        [DataRow("lorem", "Lorem")]
-        [DataRow("lorem ipsum", "Lorem ipsum")]
-        public void FirstLetterToUpperTest(string x, string expected)
-        {
-            var actual = StringHelper.FirstLetterToUpper(x);
             Assert.AreEqual(expected, actual);
         }
     }

@@ -1,4 +1,6 @@
-﻿namespace StringHelper
+﻿using System.Globalization;
+
+namespace StringHelper
 {
     /// <summary>
     /// Global class providing String methods.
@@ -10,6 +12,24 @@
 
         public static bool IsZero(int value) =>
             value == 0;
+
+        /// <summary>
+        /// Returns the string with the first character of each sentence capitalised.
+        /// </summary>
+        /// <param name="text">Value to convert</param>
+        public static string CapitaliseEachWord(string value)
+        {
+            if (String.IsNullOrEmpty(value))
+                return value;
+
+            if (IsNegativeNumber(value.Length))
+                return value;
+
+            return CultureInfo
+                .CurrentCulture
+                .TextInfo
+                .ToTitleCase(value.ToLower());
+        }
 
         /// <summary>
         /// Returns the specific number of characters from the left of the string.
@@ -103,24 +123,6 @@
             return value.Split(
                 new char[] { '.', '?', '!', ' ', ';', ':', ',' },
                 StringSplitOptions.RemoveEmptyEntries).Length;
-        }
-
-        /// <summary>
-        /// Returns the string with the first character converted to upper case.
-        /// </summary>
-        /// <param name="text">Value to convert</param>
-        public static string FirstLetterToUpper(string value)
-        {
-            if (String.IsNullOrEmpty(value))
-                return value;
-
-            if (IsNegativeNumber(value.Length))
-                return value;
-
-            var firstCharacter = char.ToUpper(value[0]);
-            return string.Concat(
-                firstCharacter.ToString(),
-                value.Substring(1));
         }
     }
 }
