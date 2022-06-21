@@ -107,9 +107,9 @@ namespace StringHelper.Tests
         [DataRow("Lorem ipsum; dolor sit amet.", 5)]
         [DataRow("Lorem ipsum, dolor sit amet.", 5)]
         [DataRow("Lorem ipsum dolor sit amet", 5)]
-        public void WordCountTest(string x, int expected)
+        public void GetTotalNumberOfWordsTest(string x, int expected)
         {
-            var actual = StringHelper.WordCount(x);
+            var actual = StringHelper.GetTotalNumberOfWords(x);
             Assert.AreEqual(expected, actual);
         }
 

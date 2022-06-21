@@ -95,7 +95,7 @@
         /// </summary>
         /// <param name="value">Value to convert</param>
         /// <param name="defaultValue">Default value</param>
-        public static int WordCount(string value)
+        public static int GetTotalNumberOfWords(string value)
         {
             if (String.IsNullOrEmpty(value))
                 return 0;
