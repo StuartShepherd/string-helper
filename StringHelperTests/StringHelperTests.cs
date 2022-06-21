@@ -12,9 +12,9 @@ namespace StringHelper.Tests
         [DataRow("123test", "123Test")]
         [DataRow("lorem", "Lorem")]
         [DataRow("lorem ipsum", "Lorem Ipsum")]
-        public void CapitaliseEachWordTest(string x, string expected)
+        public void GetCapitaliseEachWordTest(string x, string expected)
         {
-            var actual = StringHelper.CapitaliseEachWord(x);
+            var actual = StringHelper.GetCapitaliseEachWord(x);
             Assert.AreEqual(expected, actual);
         }
 
@@ -39,29 +39,6 @@ namespace StringHelper.Tests
             var length = -1;
 
             var actual = StringHelper.GetLeft(value, length);
-        }
-
-        [DataTestMethod]
-        [DataRow("", 10, "")]
-        [DataRow("Lorem ipsum dolor sit amet", 0, "")]
-        [DataRow("Lorem ipsum dolor sit amet", 4, "amet")]
-        [DataRow("Lorem ipsum dolor sit amet", 5, " amet")]
-        [DataRow("Lorem ipsum dolor sit amet", 14, "dolor sit amet")]
-        [DataRow("Lorem ipsum dolor sit amet", 100, "Lorem ipsum dolor sit amet")]
-        public void GetRightTest(string x, int y, string expected)
-        {
-            var actual = StringHelper.GetRight(x, y);
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void GetRightTest_ShouldThrowArgumentOutOfRangeException()
-        {
-            var value = "Lorem ipsum dolor sit amet";
-            var length = -1;
-
-            var actual = StringHelper.GetRight(value, length);
         }
 
         [DataTestMethod]
@@ -108,6 +85,29 @@ namespace StringHelper.Tests
             var count = -1;
 
             var actual = StringHelper.GetMid(value, start, count);
+        }
+
+        [DataTestMethod]
+        [DataRow("", 10, "")]
+        [DataRow("Lorem ipsum dolor sit amet", 0, "")]
+        [DataRow("Lorem ipsum dolor sit amet", 4, "amet")]
+        [DataRow("Lorem ipsum dolor sit amet", 5, " amet")]
+        [DataRow("Lorem ipsum dolor sit amet", 14, "dolor sit amet")]
+        [DataRow("Lorem ipsum dolor sit amet", 100, "Lorem ipsum dolor sit amet")]
+        public void GetRightTest(string x, int y, string expected)
+        {
+            var actual = StringHelper.GetRight(x, y);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void GetRightTest_ShouldThrowArgumentOutOfRangeException()
+        {
+            var value = "Lorem ipsum dolor sit amet";
+            var length = -1;
+
+            var actual = StringHelper.GetRight(value, length);
         }
 
         [DataTestMethod]

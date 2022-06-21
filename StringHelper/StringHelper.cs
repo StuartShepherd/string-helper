@@ -17,7 +17,7 @@ namespace StringHelper
         /// Returns the string with each word capitalised.
         /// </summary>
         /// <param name="text">Value to convert</param>
-        public static string CapitaliseEachWord(string value)
+        public static string GetCapitaliseEachWord(string value)
         {
             if (String.IsNullOrEmpty(value))
                 return value;
@@ -47,24 +47,6 @@ namespace StringHelper
             return value.Substring(
                 0,
                 Math.Min(value.Length, length));
-        }
-
-        /// <summary>
-        /// Returns the specific number of characters from the right of the string.
-        /// </summary>
-        /// <param name="value">Value to convert</param>
-        /// <param name="length">Length of the string to return</param>
-        public static string GetRight(string value, int length)
-        {
-            if (String.IsNullOrEmpty(value))
-                return value;
-
-            if (IsNegativeNumber(length))
-                throw new ArgumentOutOfRangeException(nameof(length));
-
-            return value.Substring(
-                Math.Max(value.Length - length, 0),
-                Math.Min(length, value.Length));
         }
 
         /// <summary>
@@ -108,6 +90,24 @@ namespace StringHelper
             return value.Substring(
                 Math.Min(start, value.Length),
                 Math.Min(length, Math.Max(value.Length - start, 0)));
+        }
+
+        /// <summary>
+        /// Returns the specific number of characters from the right of the string.
+        /// </summary>
+        /// <param name="value">Value to convert</param>
+        /// <param name="length">Length of the string to return</param>
+        public static string GetRight(string value, int length)
+        {
+            if (String.IsNullOrEmpty(value))
+                return value;
+
+            if (IsNegativeNumber(length))
+                throw new ArgumentOutOfRangeException(nameof(length));
+
+            return value.Substring(
+                Math.Max(value.Length - length, 0),
+                Math.Min(length, value.Length));
         }
 
         /// <summary>
