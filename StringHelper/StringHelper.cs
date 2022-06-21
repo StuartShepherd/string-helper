@@ -14,7 +14,7 @@ namespace StringHelper
             value == 0;
 
         /// <summary>
-        /// Returns the string with the first character of each sentence capitalised.
+        /// Returns the string with each word capitalised.
         /// </summary>
         /// <param name="text">Value to convert</param>
         public static string CapitaliseEachWord(string value)
