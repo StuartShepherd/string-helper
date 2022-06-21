@@ -25,20 +25,20 @@ namespace StringHelper.Tests
         [DataRow("Lorem ipsum dolor sit amet", 6, "Lorem ")]
         [DataRow("Lorem ipsum dolor sit amet", 11, "Lorem ipsum")]
         [DataRow("Lorem ipsum dolor sit amet", 100, "Lorem ipsum dolor sit amet")]
-        public void LeftTest(string x, int y, string expected)
+        public void GetLeftTest(string x, int y, string expected)
         {
-            var actual = StringHelper.Left(x, y);
+            var actual = StringHelper.GetLeft(x, y);
             Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void LeftTest_ShouldThrowArgumentOutOfRangeException()
+        public void GetLeftTest_ShouldThrowArgumentOutOfRangeException()
         {
             var value = "Lorem ipsum dolor sit amet";
             var length = -1;
 
-            var actual = StringHelper.Left(value, length);
+            var actual = StringHelper.GetLeft(value, length);
         }
 
         [DataTestMethod]
@@ -48,20 +48,20 @@ namespace StringHelper.Tests
         [DataRow("Lorem ipsum dolor sit amet", 5, " amet")]
         [DataRow("Lorem ipsum dolor sit amet", 14, "dolor sit amet")]
         [DataRow("Lorem ipsum dolor sit amet", 100, "Lorem ipsum dolor sit amet")]
-        public void RightTest(string x, int y, string expected)
+        public void GetRightTest(string x, int y, string expected)
         {
-            var actual = StringHelper.Right(x, y);
+            var actual = StringHelper.GetRight(x, y);
             Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void RightTest_ShouldThrowArgumentOutOfRangeException()
+        public void GetRightTest_ShouldThrowArgumentOutOfRangeException()
         {
             var value = "Lorem ipsum dolor sit amet";
             var length = -1;
 
-            var actual = StringHelper.Right(value, length);
+            var actual = StringHelper.GetRight(value, length);
         }
 
         [DataTestMethod]
@@ -69,20 +69,20 @@ namespace StringHelper.Tests
         [DataRow("Lorem ipsum dolor sit amet", 0, "")]
         [DataRow("Lorem ipsum dolor sit amet", 6, "ipsum dolor sit amet")]
         [DataRow("Lorem ipsum dolor sit amet", 12, "dolor sit amet")]
-        public void Mid1Test(string x, int y, string expected)
+        public void GetMid1Test(string x, int y, string expected)
         {
-            var actual = StringHelper.Mid(x, y);
+            var actual = StringHelper.GetMid(x, y);
             Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void Mid1Test_ShouldThrowArgumentOutOfRangeException()
+        public void GetMid1Test_ShouldThrowArgumentOutOfRangeException()
         {
             var value = "Lorem ipsum dolor sit amet";
             var start = -1;
 
-            var actual = StringHelper.Mid(value, start);
+            var actual = StringHelper.GetMid(value, start);
         }
 
         [DataTestMethod]
@@ -93,9 +93,9 @@ namespace StringHelper.Tests
         [DataRow("Lorem ipsum dolor sit amet", 6, 100, "ipsum dolor sit amet")]
         [DataRow("Lorem ipsum dolor sit amet", 12, 9, "dolor sit")]
         [DataRow("Lorem ipsum dolor sit amet", 100, 100, "")]
-        public void Mid2Test(string x, int y, int z, string expected)
+        public void GetMid2Test(string x, int y, int z, string expected)
         {
-            var actual = StringHelper.Mid(x, y, z);
+            var actual = StringHelper.GetMid(x, y, z);
             Assert.AreEqual(expected, actual);
         }
 
@@ -107,7 +107,7 @@ namespace StringHelper.Tests
             var start = -1;
             var count = -1;
 
-            var actual = StringHelper.Mid(value, start, count);
+            var actual = StringHelper.GetMid(value, start, count);
         }
 
         [DataTestMethod]

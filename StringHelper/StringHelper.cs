@@ -36,7 +36,7 @@ namespace StringHelper
         /// </summary>
         /// <param name="value">Value to convert</param>
         /// <param name="length">Length of the string to return</param>
-        public static string Left(string value, int length)
+        public static string GetLeft(string value, int length)
         {
             if (String.IsNullOrEmpty(value))
                 return value;
@@ -54,7 +54,7 @@ namespace StringHelper
         /// </summary>
         /// <param name="value">Value to convert</param>
         /// <param name="length">Length of the string to return</param>
-        public static string Right(string value, int length)
+        public static string GetRight(string value, int length)
         {
             if (String.IsNullOrEmpty(value))
                 return value;
@@ -72,7 +72,7 @@ namespace StringHelper
         /// </summary>
         /// <param name="value">Value to convert</param>
         /// <param name="start">Start point of the string to return</param>
-        public static string Mid(string value, int start)
+        public static string GetMid(string value, int start)
         {
             if (String.IsNullOrEmpty(value))
                 return value;
@@ -93,7 +93,7 @@ namespace StringHelper
         /// <param name="value">Value to convert</param>
         /// <param name="start">Start point of the string to return</param>
         /// <param name="length">Length of the string to return</param>
-        public static string Mid(string value, int start, int length)
+        public static string GetMid(string value, int start, int length)
         {
             if (String.IsNullOrEmpty(value))
                 return value;
