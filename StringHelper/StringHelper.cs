@@ -162,6 +162,18 @@ namespace StringHelper
         }
 
         /// <summary>
+        /// Returns the value with new lines replaced with spaces.
+        /// </summary>
+        /// <param name="value">Value to convert</param>
+        public static string ReplaceNewLinesWithSpaces(string value)
+        {
+            if (String.IsNullOrEmpty(value))
+                return value;
+
+            return RemoveExtraSpaces(value.Replace("\n", " "));
+        }
+
+        /// <summary>
         /// Returns the value with tabs replaced with spaces.
         /// </summary>
         /// <param name="value">Value to convert</param>

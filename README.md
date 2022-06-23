@@ -13,6 +13,8 @@ The StringHelper type exposes the following members.
 | GetTotalNumberOfWords         | Returns the number of words in the string.                              |
 | ReplaceDoubleQuotesWithSingle | Returns the value with all double quotes replaced with single quotes.   |
 | ReplaceSingleQuotesWithDouble | Returns the value with all single quotes replaced with double quotes.   |
+| ReplaceNewLinesWithSpaces     | Returns the value with new lines replaced with spaces.                  |
+| ReplaceTabsWithSpaces         | Returns the value with tabs replaced with spaces.                       |
 
 ## Tech Stack
 

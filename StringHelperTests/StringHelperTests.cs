@@ -153,8 +153,20 @@ namespace StringHelper.Tests
 
         [DataTestMethod]
         [DataRow(null, null)]
-        [DataRow(" ", " ")]
+        [DataRow(" ", "")]
+        [DataRow("Lorem \nipsum", "Lorem ipsum")]
+        [DataRow("Lorem \nipsum dolor \nsit amet", "Lorem ipsum dolor sit amet")]
+        public void ReplaceNewLinesWithSpacesTest(string x, string expected)
+        {
+            var actual = StringHelper.ReplaceNewLinesWithSpaces(x);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [DataTestMethod]
+        [DataRow(null, null)]
+        [DataRow(" ", "")]
         [DataRow("Lorem \tipsum", "Lorem ipsum")]
+        [DataRow("Lorem \tipsum dolor \tsit amet", "Lorem ipsum dolor sit amet")]
         public void ReplaceTabsWithSpacesTest(string x, string expected)
         {
             var actual = StringHelper.ReplaceTabsWithSpaces(x);
