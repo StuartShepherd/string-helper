@@ -141,7 +141,6 @@ namespace StringHelper.Tests
 
         [DataTestMethod]
         [DataRow(null, null)]
-        [DataRow("", "")]
         [DataRow(" ", " ")]
         [DataRow("Test", "Test")]
         [DataRow("'Test'", "\"Test\"")]
@@ -149,6 +148,16 @@ namespace StringHelper.Tests
         public void ReplaceSingleQuotesWithDoubleTest(string x, string expected)
         {
             var actual = StringHelper.ReplaceSingleQuotesWithDouble(x);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [DataTestMethod]
+        [DataRow(null, null)]
+        [DataRow(" ", " ")]
+        [DataRow("Lorem \tipsum", "Lorem ipsum")]
+        public void ReplaceTabsWithSpacesTest(string x, string expected)
+        {
+            var actual = StringHelper.ReplaceTabsWithSpaces(x);
             Assert.AreEqual(expected, actual);
         }
     }

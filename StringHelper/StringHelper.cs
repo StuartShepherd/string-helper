@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace StringHelper
 {
@@ -7,11 +8,23 @@ namespace StringHelper
     /// </summary>
     public static class StringHelper
     {
-        public static bool IsNegativeNumber(int value) =>
+        private static bool IsNegativeNumber(int value) =>
             value < 0;
 
-        public static bool IsZero(int value) =>
+        private static bool IsZero(int value) =>
             value == 0;
+
+        private static string RemoveExtraSpaces(string value)
+        {
+            if (String.IsNullOrEmpty(value))
+                return value;
+
+            string pattern = "\\s+";
+            string replacement = " ";
+
+            var regex = new Regex(pattern);
+            return regex.Replace(value, replacement).Trim();
+        }
 
         /// <summary>
         /// Returns the string with each word capitalised.
@@ -146,6 +159,18 @@ namespace StringHelper
                 return value;
 
             return value.Replace("'", "\"");
+        }
+
+        /// <summary>
+        /// Returns the value with tabs replaced with spaces.
+        /// </summary>
+        /// <param name="value">Value to convert</param>
+        public static string ReplaceTabsWithSpaces(string value)
+        {
+            if (String.IsNullOrEmpty(value))
+                return value;
+
+            return RemoveExtraSpaces(value.Replace("\t", " "));
         }
     }
 }
