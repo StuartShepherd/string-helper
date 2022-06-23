@@ -131,6 +131,19 @@ namespace StringHelper.Tests
         [DataRow("", "")]
         [DataRow(" ", " ")]
         [DataRow("Test", "Test")]
+        [DataRow("\"Test\"", "'Test'")]
+        [DataRow("Lorem \"ipsum", "Lorem 'ipsum")]
+        public void ReplaceDoubleQuotesWithSingleTest(string x, string expected)
+        {
+            var actual = StringHelper.ReplaceDoubleQuotesWithSingle(x);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [DataTestMethod]
+        [DataRow(null, null)]
+        [DataRow("", "")]
+        [DataRow(" ", " ")]
+        [DataRow("Test", "Test")]
         [DataRow("'Test'", "\"Test\"")]
         [DataRow("Lorem 'ipsum", "Lorem \"ipsum")]
         public void ReplaceSingleQuotesWithDoubleTest(string x, string expected)

@@ -125,10 +125,21 @@ namespace StringHelper
         }
 
         /// <summary>
-        /// Returns the value with all single quotes replaced with double quotes
+        /// Returns the value with all double quotes replaced with single quotes.
         /// </summary>
         /// <param name="value">Value to convert</param>
-        /// <returns></returns>
+        public static string ReplaceDoubleQuotesWithSingle(string value)
+        {
+            if (String.IsNullOrEmpty(value))
+                return value;
+
+            return value.Replace("\"", "'");
+        }
+
+        /// <summary>
+        /// Returns the value with all single quotes replaced with double quotes.
+        /// </summary>
+        /// <param name="value">Value to convert</param>
         public static string ReplaceSingleQuotesWithDouble(string value)
         {
             if (String.IsNullOrEmpty(value))
