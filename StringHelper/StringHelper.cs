@@ -114,7 +114,6 @@ namespace StringHelper
         /// Returns the number of words in the string.
         /// </summary>
         /// <param name="value">Value to convert</param>
-        /// <param name="defaultValue">Default value</param>
         public static int GetTotalNumberOfWords(string value)
         {
             if (String.IsNullOrEmpty(value))
@@ -123,6 +122,19 @@ namespace StringHelper
             return value.Split(
                 new char[] { '.', '?', '!', ' ', ';', ':', ',' },
                 StringSplitOptions.RemoveEmptyEntries).Length;
+        }
+
+        /// <summary>
+        /// Returns the value with all single quotes replaced with double quotes
+        /// </summary>
+        /// <param name="value">Value to convert</param>
+        /// <returns></returns>
+        public static string ReplaceSingleQuotesWithDouble(string value)
+        {
+            if (String.IsNullOrEmpty(value))
+                return value;
+
+            return value.Replace("'", "\"");
         }
     }
 }
