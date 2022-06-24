@@ -14,18 +14,6 @@ namespace StringHelper
         private static bool IsZero(int value) =>
             value == 0;
 
-        private static string RemoveExtraSpaces(string value)
-        {
-            if (String.IsNullOrEmpty(value))
-                return value;
-
-            string pattern = "\\s+";
-            string replacement = " ";
-
-            var regex = new Regex(pattern);
-            return regex.Replace(value, replacement).Trim();
-        }
-
         /// <summary>
         /// Returns the string with each word capitalised.
         /// </summary>
@@ -135,6 +123,22 @@ namespace StringHelper
             return value.Split(
                 new char[] { '.', '?', '!', ' ', ';', ':', ',' },
                 StringSplitOptions.RemoveEmptyEntries).Length;
+        }
+
+        /// <summary>
+        /// Returns the value with extra spaces removed from the value.
+        /// </summary>
+        /// /// <param name="value">Value to convert</param>
+        public static string RemoveExtraSpaces(string value)
+        {
+            if (String.IsNullOrEmpty(value))
+                return value;
+
+            string pattern = "\\s+";
+            string replacement = " ";
+
+            var regex = new Regex(pattern);
+            return regex.Replace(value, replacement).Trim();
         }
 
         /// <summary>

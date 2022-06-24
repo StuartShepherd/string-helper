@@ -129,6 +129,20 @@ namespace StringHelper.Tests
         [DataTestMethod]
         [DataRow(null, null)]
         [DataRow("", "")]
+        [DataRow(" ", "")]
+        [DataRow("Lorem ipsum", "Lorem ipsum")]
+        [DataRow("Lorem  ipsum", "Lorem ipsum")]
+        [DataRow("Lorem  ipsum ", "Lorem ipsum")]
+        [DataRow(" Lorem       ipsum         ", "Lorem ipsum")]
+        public void RemoveExtraSpacesTest(string x, string expected)
+        {
+            var actual = StringHelper.RemoveExtraSpaces(x);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [DataTestMethod]
+        [DataRow(null, null)]
+        [DataRow("", "")]
         [DataRow(" ", " ")]
         [DataRow("Test", "Test")]
         [DataRow("\"Test\"", "'Test'")]
