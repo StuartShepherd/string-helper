@@ -33,6 +33,20 @@ namespace StringHelper
         }
 
         /// <summary>
+        /// Returns the value with the tabs, new line characters and extra spaces removed.
+        /// </summary>
+        /// <param name="value">Value to convert</param>
+        public static string GetCleanString(string value)
+        {
+            if (String.IsNullOrEmpty(value))
+                return value;
+
+            return RemoveExtraSpaces(
+                value.Replace("\n", "")
+                    .Replace("\t", ""));
+        }
+
+        /// <summary>
         /// Returns the specific number of characters from the left of the string.
         /// </summary>
         /// <param name="value">Value to convert</param>
@@ -109,6 +123,21 @@ namespace StringHelper
             return value.Substring(
                 Math.Max(value.Length - length, 0),
                 Math.Min(length, value.Length));
+        }
+
+        /// <summary>
+        /// Returns the number of characters in the string.
+        /// </summary>
+        /// <param name="value">Value to convert</param>
+        /// <param name="cleanString">Clean string</param>
+        public static int GetTotalNumberOfCharacters(string value, bool cleanString = false)
+        {
+            if (String.IsNullOrEmpty(value))
+                return 0;
+
+            return cleanString
+                ? GetCleanString(value).Length
+                : value.Length;
         }
 
         /// <summary>

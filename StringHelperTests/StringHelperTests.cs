@@ -78,7 +78,7 @@ namespace StringHelper.Tests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void Mid2Test_ShouldThrowArgumentOutOfRangeException()
+        public void GetMid2Test_ShouldThrowArgumentOutOfRangeException()
         {
             var value = "Lorem ipsum dolor sit amet";
             var start = -1;
@@ -123,6 +123,31 @@ namespace StringHelper.Tests
         public void GetTotalNumberOfWordsTest(string x, int expected)
         {
             var actual = StringHelper.GetTotalNumberOfWords(x);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [DataTestMethod]
+        [DataRow(null, false, 0)]
+        [DataRow("Lorem", false, 5)]
+        [DataRow("Lorem ipsum", false, 11)]
+        [DataRow("Lorem ipsum", true, 11)]
+        [DataRow("Lorem \nipsum", true, 11)]
+        [DataRow("Lorem         ipsum   dolor", true, 17)]
+        public void GetTotalNumberOfCharactersTest(string x, bool y, int expected)
+        {
+            var actual = StringHelper.GetTotalNumberOfCharacters(x, y);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [DataTestMethod]
+        [DataRow(null, null)]
+        [DataRow(" ", "")]
+        [DataRow("Lorem \nipsum", "Lorem ipsum")]
+        [DataRow("Lorem \nipsum dolor \nsit amet", "Lorem ipsum dolor sit amet")]
+        [DataRow(" Lorem       \tipsum         ", "Lorem ipsum")]
+        public void GetCleanStringTest(string x, string expected)
+        {
+            var actual = StringHelper.GetCleanString(x);
             Assert.AreEqual(expected, actual);
         }
 
