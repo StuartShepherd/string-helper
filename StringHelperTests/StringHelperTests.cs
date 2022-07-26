@@ -211,5 +211,16 @@ namespace StringHelper.Tests
             var actual = StringHelper.ReplaceTabsWithSpaces(x);
             Assert.AreEqual(expected, actual);
         }
+
+        [DataTestMethod]
+        [DataRow(null, null)]
+        [DataRow(" ", " ")]
+        [DataRow("Lorem ipsum", "muspi meroL")]
+        [DataRow("A12345", "54321A")]
+        public void ReverseTest(string x, string expected)
+        {
+            var actual = StringHelper.Reverse(x);
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

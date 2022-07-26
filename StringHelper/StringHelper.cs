@@ -217,5 +217,20 @@ namespace StringHelper
 
             return RemoveExtraSpaces(value.Replace("\t", " "));
         }
+
+        /// <summary>
+        /// Returns the value reversed.
+        /// </summary>
+        /// <param name="value">Value to convert</param>
+        public static string Reverse(string value)
+        {
+            if (String.IsNullOrEmpty(value))
+                return value;
+
+            var chars = value.ToCharArray();
+            Array.Reverse(chars);
+            return new string(chars);
+        }
     }
 }
+                                         
