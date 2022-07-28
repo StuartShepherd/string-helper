@@ -155,9 +155,23 @@ namespace StringHelper
         }
 
         /// <summary>
+        /// Returns the times the search string appears
+        /// </summary>
+        /// <param name="value">Value</param>
+        /// <param name="serach">Search string</param>
+        public static int GetStringCount(string value, string search)
+        {
+            if (String.IsNullOrWhiteSpace(value))
+                return 0;
+
+            return value.Split(search)
+                .Length - 1;
+        }
+
+        /// <summary>
         /// Returns the value with extra spaces removed from the value.
         /// </summary>
-        /// /// <param name="value">Value to convert</param>
+        /// <param name="value">Value to convert</param>
         public static string RemoveExtraSpaces(string value)
         {
             if (String.IsNullOrEmpty(value))

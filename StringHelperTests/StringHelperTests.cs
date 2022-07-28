@@ -152,6 +152,20 @@ namespace StringHelper.Tests
         }
 
         [DataTestMethod]
+        [DataRow(null, null, 0)]
+        [DataRow("Lorem ipsum", "dolor", 0)]
+        [DataRow("Lorem ipsum", "ipsum", 1)]
+        [DataRow("Lorem ipsum dolor sit amet lorem ipsum dolor lorem", "dolor", 2)]
+        [DataRow("Lorem ipsum dolor sit amet lorem ipsum dolor lorem", "lorem", 2)]
+        [DataRow("Lorem ipsum dolor sit amet lorem ipsum dolor lorem", "re", 3)]
+        [DataRow("Lorem ipsum dolor sit amet lorem ipsum dolor lorem", " ", 8)]
+        public void GetStringCountTest(string x, string y, int expected)
+        {
+            var actual = StringHelper.GetStringCount(x, y);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [DataTestMethod]
         [DataRow(null, null)]
         [DataRow("", "")]
         [DataRow(" ", "")]
