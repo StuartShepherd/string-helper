@@ -111,6 +111,17 @@ namespace StringHelper.Tests
         }
 
         [DataTestMethod]
+        [DataRow(null, "")]
+        [DataRow("Lorem ipsum", "")]
+        [DataRow("Lorem 123 ipsum", "123")]
+        [DataRow("Lo1rem 234 ips5um 6", "123456")]
+        public void GetNumbersTest(string x, string expected)
+        {
+            var actual = StringHelper.GetNumbers(x);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [DataTestMethod]
         [DataRow(null, 0)]
         [DataRow("", 0)]
         [DataRow(" ", 0)]

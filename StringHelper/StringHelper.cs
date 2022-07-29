@@ -126,6 +126,19 @@ namespace StringHelper
         }
 
         /// <summary>
+        /// Return only the numbers of a string
+        /// </summary>
+        /// <param name="value">Value to convert</param>
+        public static string GetNumbers(string value)
+        {
+            if (String.IsNullOrEmpty(value))
+                return "";
+
+            var reg_exp = new Regex("[^0123456789.]");
+            return reg_exp.Replace(value, "");
+        }
+
+        /// <summary>
         /// Returns the number of characters in the string.
         /// </summary>
         /// <param name="value">Value to convert</param>
