@@ -168,7 +168,7 @@ namespace StringHelper
         }
 
         /// <summary>
-        /// Returns the times the search string appears
+        /// Returns the number of times the search value appears in the string.
         /// </summary>
         /// <param name="value">Value</param>
         /// <param name="serach">Search string</param>
